@@ -69,7 +69,7 @@ const Cart = () => {
             </div>
             <div className='flex-1 w-full text-lg font-semibold'>
               <p className='text-gray-600'>If you have a promo code, enter it here:</p>
-              <div className='w-full lg:w-80 mt-2 flex px-4'>
+              <div className='w-full lg:w-80 mt-2 flex px-4 '>
                 <input type="text" placeholder='Promo code' className='flex-1 h-14 p-2 bg-gray-200'/>
                 <button className='h-14 w-32 px-4 py-1 bg-gray-800 text-white'>Submit</button>
               </div>
