@@ -106,7 +106,7 @@ const Hero = () => {
                     key={activeData.id}
                     variants={slideRight(0.4)}
                     initial="hidden" animate="show" exit="exit"
-                    className='text-sm leading-loose text-white/80 '>{activeData.subtitle}</motion.p>
+                    className='text-sm leading-loose text-white/80 px-4 '>{activeData.subtitle}</motion.p>
               </AnimatePresence>
               <AnimatePresence mode='wait'>
                 <UpdateFollower
