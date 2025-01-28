@@ -195,7 +195,7 @@ const Hero = () => {
                     duration: 0.4,
                   },
                 }}
-                src={activeData.image} alt={activeData.price} className='w-[300px] md:w-[200px] lg:w-[600px] lg:right-[0%] lg:bottom-[10%] lg:absolute lg:pb-[10%] img-shadow z-10 ' />
+                src={activeData.image} alt={activeData.price} className='w-[300px] md:w-[200px] lg:w-[600px] lg:right-[0%] lg:bottom-[10%] lg:absolute lg:pb-[6%]  img-shadow z-10 ' />
             </AnimatePresence>
             <AnimatePresence mode='wait'>
               <motion.div
