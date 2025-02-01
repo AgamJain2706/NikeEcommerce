@@ -10,7 +10,7 @@ const Cart = () => {
     window.scrollTo(0, 0)
   }, [])
 
-  const { all_product, cartItems, addToCart, removeToCart, getTotalCartItems, getAllCartAmount } = useContext(ShopContext)
+  const { all_product, cartItems , removeToCart, getTotalCartItems, getAllCartAmount } = useContext(ShopContext)
 
   return (
     <div>
