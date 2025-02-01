@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Navbar from './Navbar'
+import { Link } from 'react-router-dom'
 import Shoe1 from '../assets/Shoes1.png'
 import Shoe2 from '../assets/Shoes2.png'
 import Shoe3 from '../assets/Shoes3.png'
@@ -102,34 +103,38 @@ const Hero = () => {
                 </UpdateFollower>
               </AnimatePresence>
               <AnimatePresence mode='wait' >
-                  <motion.p
-                    key={activeData.id}
-                    variants={slideRight(0.4)}
-                    initial="hidden" animate="show" exit="exit"
-                    className='text-sm leading-loose text-white/80 px-4 '>{activeData.subtitle}</motion.p>
+                <motion.p
+                  key={activeData.id}
+                  variants={slideRight(0.4)}
+                  initial="hidden" animate="show" exit="exit"
+                  className='text-sm leading-loose text-white/80 px-4 '>{activeData.subtitle}</motion.p>
               </AnimatePresence>
               <AnimatePresence mode='wait'>
                 <UpdateFollower
-                 mouseOptions={{
-                   backgroundColor: activeData.bgColor,
-                   zIndex:9999,
-                   followSpeed:0.5,
-                   rotate:-720,
-                   scale:6,
-                   backgroundElement: (
-                     <div>
-                       <img
-                       src={activeData.image}
-                       />
-                     </div>
-                   )
-                 }}
-                 >
-                <motion.button
-                  key={activeData.id}
-                  variants={slideRight(0.6)}
-                  initial="hidden" animate="show" exit="exit"
-                  className='px-4 py-2 bg-white text-black  inline-block font-normal rounded-sm  '>order now </motion.button>
+                  mouseOptions={{
+                    backgroundColor: activeData.bgColor,
+                    zIndex: 9999,
+                    followSpeed: 0.5,
+                    rotate: -720,
+                    scale: 6,
+                    backgroundElement: (
+                      <div>
+                        <img
+                          src={activeData.image}
+                        />
+                      </div>
+                    )
+                  }}
+                >
+                  <motion.button
+                    key={activeData.id}
+                    variants={slideRight(0.6)}
+                    initial="hidden" animate="show" exit="exit"
+                    className='px-4 py-2 bg-white text-black  inline-block font-normal rounded-sm  '>
+                    <Link to={"/cart"}>
+                      order now
+                    </Link>
+                  </motion.button>
                 </UpdateFollower>
               </AnimatePresence>
               {/* list seperator  */}
@@ -150,30 +155,30 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
               className='grid grid-cols-3 gap-10 '>
               {
-                ShoesData.map((data,index) => {
+                ShoesData.map((data, index) => {
                   return (
                     <UpdateFollower key={index}
-                    mouseOptions={{
-                      backgroundColor:ClipboardItem.bgColor,
-                      zIndex:9999,
-                      followSpeed: 0.5,
-                      scale:5,
-                      text: "View Details",
-                      textFontSize:'3px',
+                      mouseOptions={{
+                        backgroundColor: ClipboardItem.bgColor,
+                        zIndex: 9999,
+                        followSpeed: 0.5,
+                        scale: 5,
+                        text: "View Details",
+                        textFontSize: '3px',
 
-                    }}
+                      }}
                     >
-                    <div 
-                      onClick={() => handleActiveData(data)}
-                      className='cursor-pointer space-y-3  hover:scale-105 transition-all duration-200 '>
-                      <div className='flex justify-center '>
-                        <img src={data.image} alt={data.title} className={`w-[80px] img-shadow ${activeData.image === data.image ? "opacity-100 scale-110 " : "opacity-50"}`} />
+                      <div
+                        onClick={() => handleActiveData(data)}
+                        className='cursor-pointer space-y-3  hover:scale-105 transition-all duration-200 '>
+                        <div className='flex justify-center '>
+                          <img src={data.image} alt={data.title} className={`w-[80px] img-shadow ${activeData.image === data.image ? "opacity-100 scale-110 " : "opacity-50"}`} />
+                        </div>
+                        <div className='text-center !mt-6 space-y-1 '>
+                          <p className='text-center line-through opacity-50 '>{data.price}</p>
+                          <p className='text-xl font-bold '>{data.price}</p>
+                        </div>
                       </div>
-                      <div className='text-center !mt-6 space-y-1 '>
-                        <p className='text-center line-through opacity-50 '>{data.price}</p>
-                        <p className='text-xl font-bold '>{data.price}</p>
-                      </div>
-                    </div>
                     </UpdateFollower>
                   )
                 })
@@ -199,16 +204,16 @@ const Hero = () => {
             </AnimatePresence>
             <AnimatePresence mode='wait'>
               <motion.div
-              key={activeData.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0, ease:"easeInOut"}}
-              className='text-white/5 text-[100px] font-poppins font-extrabold absolute top-auto left-1/2 -translate-x-1/2 -translate-y-1/2 z-0'>{activeData.modal}</motion.div>
+                key={activeData.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0, ease: "easeInOut" }}
+                className='text-white/5 text-[100px] font-poppins font-extrabold absolute top-auto left-1/2 -translate-x-1/2 -translate-y-1/2 z-0'>{activeData.modal}</motion.div>
             </AnimatePresence>
           </div>
         </div>
       </motion.section>
-      
+
     </>
   )
 }

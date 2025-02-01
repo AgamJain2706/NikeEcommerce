@@ -2,15 +2,22 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const Contact = () => {
-  function formhandler(event) {
+  function formHandler(event) {
     event.preventDefault();
-    console.log("form submitted",event.target.value);
-
-    // Clear the input fields
+    console.log("form submitted");
+    // Get the data from the input fields
     const form = event.target;
     const inputFields = form.querySelectorAll('input, textarea');
+    const formData = {};
+    inputFields.forEach(input => {
+      formData[input.name] = input.value;
+    });
+    // Log the form data to the console
+    console.log(formData);
+    // Clear the input fields
     inputFields.forEach(input => input.value = '');
   }
+
   return (
     <div className='bg-gray-950 '>
       <div className='max-w-7xl mx-auto items-center flex flex-col py-8 px-4 md:px-8 min-h-screen '>
@@ -31,7 +38,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
             className='bg-[#c7e9ec] shadow-xl shadow-[#33cccc] rounded-lg p-8 md:p-12 max-w-xl md:w-[400px]'>
-            <form onSubmit={formhandler}
+            <form onSubmit={formHandler}
               className='flex flex-col space-y-6'>
               <div>
                 <label htmlFor="name" className='block text-sm font-medium text-gray-900'>Full Name</label>

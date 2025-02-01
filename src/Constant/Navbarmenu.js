@@ -9,11 +9,11 @@ export const NavbarMenu = [
       title: 'Womens',
       link:"/womens",
     },
-    {
-      id:4,
-      title: 'Kids',
-      link:"/Kids",
-    },
+    // {
+    //   id:4,
+    //   title: 'Kids',
+    //   link:"/Kids",
+    // },
     {
       id:5,
       title: 'Contact-us',
