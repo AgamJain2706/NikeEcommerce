@@ -1,4 +1,4 @@
-Sure! Here's a project description you could use for your GitHub README file: 
+Sure! Here's a project description 
 
 ---
 
